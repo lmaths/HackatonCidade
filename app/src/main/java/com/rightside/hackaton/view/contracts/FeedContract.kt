@@ -1,20 +1,29 @@
 package com.rightside.hackaton.view.contracts
 
 
+import com.rightside.hackaton.model.Action
 import com.rightside.hackaton.view.base.BasePresenter
 import com.rightside.hackaton.view.base.BaseView
+import io.reactivex.Observable
 
 interface FeedContract {
     interface View : BaseView<Presenter> {
-        fun helloWorld(value : String)
         fun showLogin()
+        fun showLoading()
+        fun updateFeed(it: List<Action>)
+        fun showEmptyFeed()
+        fun hideLoading()
+        fun showDetails()
+        fun moveToLogin()
     }
     interface Presenter : BasePresenter<FeedContract.View> {
-        fun getHelloWorld()
+        fun getFeed()
+        fun moveToDetails()
     }
 
     interface FirebaseService {
-        fun sendHelloWorld() : Boolean
+        fun getFeed() : Observable<List<Action>>
+        fun verifyIfUserIsAuthenticated() : Boolean
     }
 }
 
