@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.rightside.hackaton.R
 import com.rightside.hackaton.presenter.HelloWorldPresenter
 import com.rightside.hackaton.view.contracts.FeedContract
@@ -26,5 +27,10 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
     override fun helloWorld(value: String) {
         Toast.makeText(requireContext(), value, Toast.LENGTH_SHORT).show()
     }
+
+    override fun showLogin() {
+        findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToLoginFragment())
+    }
+
 
 }

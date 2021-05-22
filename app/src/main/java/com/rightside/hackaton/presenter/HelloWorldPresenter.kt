@@ -9,7 +9,10 @@ class HelloWorldPresenter(private val service : FeedContract.FirebaseService) : 
     override var view: FeedContract.View? = null
     lateinit var lifecycle : Lifecycle
     override fun getHelloWorld() {
-        view?.helloWorld(service.sendHelloWorld())
+        when(service.sendHelloWorld()) {
+            true ->  view?.helloWorld("teste")
+            false -> view?.showLogin()
+        }
     }
 
     override fun init() {

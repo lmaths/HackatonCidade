@@ -7,13 +7,14 @@ import com.rightside.hackaton.view.base.BaseView
 interface FeedContract {
     interface View : BaseView<Presenter> {
         fun helloWorld(value : String)
+        fun showLogin()
     }
     interface Presenter : BasePresenter<FeedContract.View> {
         fun getHelloWorld()
     }
 
     interface FirebaseService {
-        fun sendHelloWorld() : String
+        fun sendHelloWorld() : Boolean
     }
 }
 
