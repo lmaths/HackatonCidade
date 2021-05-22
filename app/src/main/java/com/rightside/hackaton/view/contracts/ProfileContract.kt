@@ -9,6 +9,7 @@ import io.reactivex.Observable
 interface ProfileContract {
     interface View : BaseView<Presenter> {
         fun moveUserToLogin()
+        fun updateData(userdata: User, actions: List<Action>)
     }
     interface Presenter : BasePresenter<View> {
 

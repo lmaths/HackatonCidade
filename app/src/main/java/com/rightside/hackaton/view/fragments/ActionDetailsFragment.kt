@@ -15,13 +15,16 @@ import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentActionDetailsBinding
 import com.rightside.hackaton.extensions.loadImage
 import com.rightside.hackaton.model.Action
+import com.rightside.hackaton.presenter.ActionDetailsPresenter
 import com.rightside.hackaton.view.contracts.ActionDetailsContract
+import org.koin.android.ext.android.inject
 
 
 class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), ActionDetailsContract.View {
    private lateinit var binding : FragmentActionDetailsBinding
-    override val presenter: ActionDetailsContract.Presenter by inject()
+    override val presenter: ActionDetailsPresenter by inject()
     private val args : ActionDetailsFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,12 +36,15 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.view = this
+        presenter.lifecycle = lifecycle
+        presenter.init()
         val action = args.action
         setFields(action)
         renderGraph()
 
         binding.materialButton.setOnClickListener {
-
+            presenter.buyAction(action)
         }
     }
 

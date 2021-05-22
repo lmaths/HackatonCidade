@@ -23,7 +23,9 @@ class ProfileIteractor(private val dbInstance : FirebaseFirestore, private val a
 
     override fun getActionsPurchasedByUserId(userid: String): Observable<List<Action>> {
         return Observable.create { emmiter ->
-                dbInstance.collection("")
+                dbInstance.collection(userid).addSnapshotListener { value, error ->
+                    value?.toObjects(Action::class.java)?.let { emmiter.onNext(it) }
+                }
         }
     }
 

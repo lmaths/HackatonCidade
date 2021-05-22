@@ -15,7 +15,7 @@ val presenterModules = module {
     factory { ProducerPresenter(service = get(), schedulerProvider = get() ) }
     factory { ProducerDetailsPresenter(service = get(), schedulerProvider = get()) }
     factory { ProfilePresenter(service = get(), baseSchedulerProvider = get() ) }
-    factory { ActionDetailsIteractor(dbService = get(),appSharedPreferences = get()) }
+    factory { ActionDetailsPresenter(service = get(), schedulerProvider = get() ) }
 }
 
 val iteractorModules = module {

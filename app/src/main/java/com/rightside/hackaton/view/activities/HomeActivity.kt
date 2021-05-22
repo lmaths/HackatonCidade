@@ -26,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.actionDetailsFragment -> binding.bottomNavigationView.invisibleUI()
                 R.id.producerDetailsFragment -> binding.bottomNavigationView.invisibleUI()
                 R.id.producerFragment -> binding.bottomNavigationView.visibleUI()
+                R.id.profileFragment -> binding.bottomNavigationView.visibleUI()
             }
         }
     }

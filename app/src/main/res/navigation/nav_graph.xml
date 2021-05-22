@@ -58,4 +58,9 @@
             android:id="@+id/action_producerDetailsFragment_to_actionDetailsFragment"
             app:destination="@id/actionDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.rightside.hackaton.view.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

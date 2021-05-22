@@ -1,5 +1,6 @@
 package com.rightside.hackaton.presenter
 
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -33,7 +34,7 @@ class ProfilePresenter(val service : ProfileContract.FirebaseService, val baseSc
     }
 
     private fun onFinished(userdata: User, actions: List<Action>) {
-
+       view?.updateData(userdata, actions)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
