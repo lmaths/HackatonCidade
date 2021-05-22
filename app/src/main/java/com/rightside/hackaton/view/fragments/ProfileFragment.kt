@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentProfileBinding
 import com.rightside.hackaton.extensions.loadImage
+import com.rightside.hackaton.extensions.loadImageCircle
 import com.rightside.hackaton.model.Action
 import com.rightside.hackaton.model.User
 import com.rightside.hackaton.presenter.ProfilePresenter
@@ -52,7 +53,7 @@ class ProfileFragment : Fragment(), ProfileContract.View {
 
     override fun updateData(userdata: User, actions: List<Action>) {
         binding.textViewUserName.text = userdata.name
-        binding.imageViewUserProfile.loadImage(userdata.pictureUrl)
+        binding.imageViewUserProfile.loadImageCircle(userdata.pictureUrl)
         actionsAdapter.updateActions(actions)
     }
 

@@ -14,6 +14,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentActionDetailsBinding
 import com.rightside.hackaton.extensions.loadImage
+import com.rightside.hackaton.extensions.loadImageCircle
 import com.rightside.hackaton.model.Action
 import com.rightside.hackaton.presenter.ActionDetailsPresenter
 import com.rightside.hackaton.view.contracts.ActionDetailsContract
@@ -54,7 +55,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
         binding.textViewId.text = action.id
         binding.textViewName.text = action.producer?.name
         binding.textViewUnity.text = action.quantity.toString()
-        action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImage(it) }
+        action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImageCircle(it) }
         binding.textViewSalePrice.text = action.salePrice.toString()
     }
 
