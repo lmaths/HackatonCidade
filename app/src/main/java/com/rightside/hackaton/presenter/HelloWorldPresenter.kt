@@ -3,8 +3,6 @@ package com.rightside.hackaton.presenter
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.rightside.hackaton.config.di.BaseSchedulerProvider
-import com.rightside.hackaton.iteractor.HelloWorldIteractor
 import com.rightside.hackaton.view.contracts.FeedContract
 
 class HelloWorldPresenter(private val service : FeedContract.FirebaseService) : FeedContract.Presenter, LifecycleObserver {

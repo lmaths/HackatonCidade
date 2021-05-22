@@ -14,7 +14,7 @@ val presenterModules = module {
 
 val iteractorModules = module {
     factory { FirebaseFirestore.getInstance() }
-    single<FeedContract.FirebaseService>{ HelloWorldIteractor() }
+    single<FeedContract.FirebaseService>{ HelloWorldIteractor(get()) }
 }
 
 
