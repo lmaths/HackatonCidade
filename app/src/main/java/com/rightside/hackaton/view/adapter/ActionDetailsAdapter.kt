@@ -3,7 +3,6 @@ package com.rightside.hackaton.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rightside.hackaton.databinding.AdapterActionBinding
 import com.rightside.hackaton.databinding.AdapterActionDetailsBinding
 import com.rightside.hackaton.model.Action
 
@@ -34,7 +33,7 @@ class ActionDetailsAdapter(val actionClickListener : (Action) -> Unit ) : Recycl
 
     inner class ActionDetailsViewHolder(binding : AdapterActionDetailsBinding) : RecyclerView.ViewHolder(binding.root) {
          fun bind(action : Action) {
-            binding.textViewName.text = action.name
+            binding.textViewName.text = action.producer?.name
             binding.textViewUnity.text = action.quantity.toString()
             binding.textViewBuyPrice.text = action.purchasePrice.toString()
             binding.textViewSalePrice.text = action.salePrice.toString()
