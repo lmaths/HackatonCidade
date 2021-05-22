@@ -1,6 +1,6 @@
 package com.rightside.hackaton.presenter
 
-import android.util.Log
+
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -8,6 +8,7 @@ import com.rightside.hackaton.config.di.BaseSchedulerProvider
 import com.rightside.hackaton.model.Producer
 import com.rightside.hackaton.view.contracts.ProducerContract
 import io.reactivex.disposables.CompositeDisposable
+import java.util.concurrent.TimeUnit
 
 class ProducerPresenter(private val service : ProducerContract.FirebaseService, private val schedulerProvider: BaseSchedulerProvider) : ProducerContract.Presenter, LifecycleObserver {
     override var view: ProducerContract.View? = null
@@ -19,6 +20,7 @@ class ProducerPresenter(private val service : ProducerContract.FirebaseService, 
             service.getAllProducers()
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.ui())
+                .delay(2, TimeUnit.SECONDS, schedulerProvider.ui())
                 .doOnSubscribe { view?.showLoading() }
                 .subscribe( { onFinishedGetAllProducers(it) } , { onFailureGetAllProducers(it) })
         )

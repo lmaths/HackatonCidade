@@ -42,5 +42,17 @@
         <action
             android:id="@+id/action_producerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_producerFragment_to_producerDetailsFragment"
+            app:destination="@id/producerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/producerDetailsFragment"
+        android:name="com.rightside.hackaton.view.fragments.ProducerDetailsFragment"
+        android:label="fragment_producer_details"
+        tools:layout="@layout/fragment_producer_details" >
+        <argument
+            android:name="producer"
+            app:argType="com.rightside.hackaton.model.Producer" />
     </fragment>
 </navigation>

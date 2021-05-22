@@ -22,17 +22,13 @@ import org.koin.android.ext.android.inject
 class ProducerFragment : Fragment(R.layout.fragment_producer), ProducerContract.View {
     private lateinit var binding : FragmentProducerBinding
     private val producerAdapter by lazy { ProducerAdapter(::producerClickListener) }
-
-
-
-
     override val presenter: ProducerPresenter by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       binding = FragmentProducerBinding.inflate(layoutInflater)
+        binding = FragmentProducerBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -52,6 +48,7 @@ class ProducerFragment : Fragment(R.layout.fragment_producer), ProducerContract.
     }
 
     override fun showProducers(it: List<Producer>) {
+        binding.recyclerViewProducers.visibleUI()
         producerAdapter.updateProducers(it)
     }
 
@@ -64,7 +61,7 @@ class ProducerFragment : Fragment(R.layout.fragment_producer), ProducerContract.
     }
 
     override fun moveToProducerDetails(producer: Producer) {
-
+        findNavController().navigate(ProducerFragmentDirections.actionProducerFragmentToProducerDetailsFragment(producer))
     }
 
     override fun moveToLogin() {
@@ -75,5 +72,8 @@ class ProducerFragment : Fragment(R.layout.fragment_producer), ProducerContract.
         presenter.moveToProducerDetails(producer)
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        binding.recyclerViewProducers.invisibleUI()
+    }
 }
