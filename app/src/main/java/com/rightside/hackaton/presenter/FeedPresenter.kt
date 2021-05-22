@@ -55,8 +55,10 @@ class FeedPresenter(private val service : FeedContract.FirebaseService, private 
     }
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onStop() {
+        lifecycle.removeObserver(this)
+        disposable.clear()
         view = null
     }
 }

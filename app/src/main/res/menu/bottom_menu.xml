@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:icon="@drawable/ic_feed"
-        android:id="@+id/nav_historic"
+        android:id="@+id/feedFragment"
         app:showAsAction="always"
-        android:title="Histórico" />
+        android:title="Feed" />
+    <item
+        android:icon="@drawable/ic_producers"
+        android:id="@+id/producerFragment"
+        app:showAsAction="always"
+        android:title="Produtores" />
 </menu>

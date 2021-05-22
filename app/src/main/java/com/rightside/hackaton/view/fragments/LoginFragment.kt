@@ -15,6 +15,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,13 +33,13 @@ import org.koin.android.ext.android.inject
 class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
 
     lateinit var binding : FragmentLoginBinding
-
+    private var mAuth: FirebaseAuth? = null
 
     override val presenter: LoginPresenter by inject()
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
@@ -44,6 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         googleSignInConfig()
+        mAuth = FirebaseAuth.getInstance();
         displaySignIn()
     }
 
@@ -68,28 +73,41 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
     }
 
     private fun authWithGoogle(account: GoogleSignInAccount) {
-        verifyUser(account)
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        mAuth?.signInWithCredential(credential)?.addOnCompleteListener {
+            if (it.isSuccessful) {
+                verifyUser(account)
+            }
+        }
     }
 
     private fun verifyUser(account: GoogleSignInAccount) {
-        val documentReference: DocumentReference? = account.id?.let { FirebaseFirestore.getInstance().collection("users").document(it) }
+        val user = mAuth?.currentUser
+        val documentReference: DocumentReference? =
+            user?.uid?.let {
+                FirebaseFirestore.getInstance().collection(
+                    "users"
+                ).document(it)
+            }
         documentReference?.get()?.addOnCompleteListener { task: Task<DocumentSnapshot?> ->
             if (task.isSuccessful) {
                 val documentSnapshot = task.result
                 if (documentSnapshot!!.exists()) {
-                    presenter.saveUserId( User(
+                    presenter.saveUserId(
+                        User(
                             account.displayName.toString(),
                             account.email.toString(),
                             account.photoUrl.toString(),
-                            account.id.toString()
-                    ))
+                            user.uid
+                        )
+                    )
                     finishFragment()
                 } else {
                     val user = User(
-                            account.displayName.toString(),
-                            account.email.toString(),
-                            account.photoUrl.toString(),
-                            account.id.toString()
+                        account.displayName.toString(),
+                        account.email.toString(),
+                        account.photoUrl.toString(),
+                        user.uid
                     )
                     FirebaseFirestore.getInstance().collection("users").document(user.uuid).set(user)
                             .addOnCompleteListener {

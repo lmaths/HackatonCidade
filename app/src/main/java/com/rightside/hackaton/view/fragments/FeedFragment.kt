@@ -55,6 +55,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
     }
 
     override fun updateFeed(it: List<Action>) {
+        binding.recyclerView.visibleUI()
         actionAdapter.updateActions(it)
     }
 
@@ -79,6 +80,8 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
     }
 
 
-
-
+    override fun onResume() {
+        super.onResume()
+        binding.recyclerView.invisibleUI()
+    }
 }

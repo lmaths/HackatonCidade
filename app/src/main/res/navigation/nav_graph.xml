@@ -34,4 +34,13 @@
             android:name="action"
             app:argType="com.rightside.hackaton.model.Action" />
     </fragment>
+    <fragment
+        android:id="@+id/producerFragment"
+        android:name="com.rightside.hackaton.view.fragments.ProducerFragment"
+        android:label="fragment_producer"
+        tools:layout="@layout/fragment_producer" >
+        <action
+            android:id="@+id/action_producerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
