@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentProducerBinding
@@ -37,6 +38,12 @@ class ProducerFragment : Fragment(R.layout.fragment_producer), ProducerContract.
         presenter.view = this
         presenter.lifecycle = lifecycle
         presenter.init()
+        binding.recyclerViewProducers.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            )
+        )
         binding.recyclerViewProducers.apply {
             adapter =  producerAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false )
