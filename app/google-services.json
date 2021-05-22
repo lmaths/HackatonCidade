@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "533568451503",
+    "project_id": "hackaton-cidade",
+    "storage_bucket": "hackaton-cidade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533568451503:android:6fda47206b6a051442b55a",
+        "android_client_info": {
+          "package_name": "com.rightside.hackaton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533568451503-naqcthhmdkcjk9eh3d2a5hglefn3k7uv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rightside.hackaton",
+            "certificate_hash": "ecf4f1f0ef3b7a4f18f56d5159035d877f1d144a"
+          }
+        },
+        {
+          "client_id": "533568451503-c4tkjfcr1vm5mda1n6tmds3qgj783c3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKeaRqTkmY2OtfMHKKJOEQ0c5weecxxBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533568451503-c4tkjfcr1vm5mda1n6tmds3qgj783c3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
