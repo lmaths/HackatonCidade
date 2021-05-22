@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rightside.hackaton.databinding.AdapterProducerBinding
+import com.rightside.hackaton.extensions.loadImage
 import com.rightside.hackaton.model.Producer
 
 class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : RecyclerView.Adapter<ProducerAdapter.ProducerViewHolder>() {
@@ -12,8 +13,9 @@ class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : Recycler
     inner class ProducerViewHolder(binding : AdapterProducerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(producer: Producer) {
             binding.textViewProducerName.text = producer.name
-            binding.textViewProducerAddress.text = "endereço"
-            binding.textViewProducerQuantity.text = producer.uuid
+            binding.textViewProducerAddress.text = producer.address
+            binding.textViewProducerQuantity.text = "100 Ativos"
+            binding.imageViewProducerPicture.loadImage(producer.profilePicture)
         }
     }
 

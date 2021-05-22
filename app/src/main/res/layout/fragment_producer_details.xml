@@ -14,4 +14,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_producer_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fazenda do joão"
+        android:textSize="22sp"
+        android:fontFamily="@font/source_sans_pro"
+        android:textStyle="bold"
+        android:layout_marginTop="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_producer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MATHEUS LIMA DA SILVA"
+        android:layout_marginStart="19sp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19sp"
+        android:layout_marginTop="10sp"
+        android:text="CONFINAMENTO | ANIMAL SOLTO |"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_producer_company_name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_producer_actives"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_producer_name" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>

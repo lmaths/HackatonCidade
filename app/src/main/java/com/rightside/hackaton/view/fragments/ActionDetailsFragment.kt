@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentActionDetailsBinding
+import com.rightside.hackaton.extensions.loadImage
 import com.rightside.hackaton.model.Action
 
 
@@ -32,7 +33,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
         super.onViewCreated(view, savedInstanceState)
         val action = args.action
         setFields(action)
-       renderGraph()
+        renderGraph()
     }
 
     private fun setFields(action: Action) {
@@ -41,6 +42,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
         binding.textViewId.text = action.id
         binding.textViewName.text = action.name
         binding.textViewUnity.text = action.quantity.toString()
+        action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImage(it) }
         binding.textViewSalePrice.text = action.salePrice.toString()
     }
 

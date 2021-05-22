@@ -1,20 +1,32 @@
 package com.rightside.hackaton.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentProducerBinding
 import com.rightside.hackaton.databinding.FragmentProducerDetailsBinding
-import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import com.rightside.hackaton.model.Action
+import com.rightside.hackaton.model.Producer
+import com.rightside.hackaton.presenter.ProducerDetailsPresenter
+import com.rightside.hackaton.view.adapter.ActionDetailsAdapter
+import com.rightside.hackaton.view.contracts.ProducerDetailsContract
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import org.koin.android.ext.android.inject
 
 
-class ProducerDetailsFragment : Fragment(R.layout.fragment_producer_details) {
+class ProducerDetailsFragment : Fragment(R.layout.fragment_producer_details) , ProducerDetailsContract.View{
     lateinit var binding : FragmentProducerDetailsBinding
-
+    private val args : ProducerDetailsFragmentArgs by navArgs()
+    private val actionAdapter by lazy { ActionDetailsAdapter(::actionClickListener) }
+    override val presenter: ProducerDetailsPresenter by inject()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +37,41 @@ class ProducerDetailsFragment : Fragment(R.layout.fragment_producer_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.view = this
+        presenter.lifecycle = lifecycle
+        presenter.init()
         binding.carousel.registerLifecycle(lifecycle)
-        val list = mutableListOf<CarouselItem>(CarouselItem("https://emc-src.eptv.com.br/dbimagens/mato_alto_790x444_03012020165226.jpg", "aassa"), CarouselItem("https://emc-src.eptv.com.br/dbimagens/mato_alto_790x444_03012020165241.jpg", "aassa"), CarouselItem("https://s2.glbimg.com/PkAJ2BkF_dFex7M9JqMhJB8zUz4=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/B/8/GLxRVASxmeYcMAtKACTw/nc-fazenda-itu-061220.jpg", "aassa"))
+        val producer = args.producer
+        val list = mutableListOf<CarouselItem>()
+        producer.photos.map { list.add(CarouselItem(it,"")) }
         binding.carousel.setData(list)
+        binding.recyclerViewProducerActives.apply {
+            adapter = actionAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+        presenter.getAllActivesByIdProducer(producerId = producer.id)
+        bind(producer)
     }
+
+    override fun showLoading() {
+        //todo
+    }
+
+    override fun hideLoading() {
+        //todo
+    }
+
+    override fun updateActions(it: List<Action>) {
+        actionAdapter.updateActions(it)
+    }
+
+    private fun actionClickListener(action: Action) {
+        findNavController().navigate(ProducerDetailsFragmentDirections.actionProducerDetailsFragmentToActionDetailsFragment(action))
+    }
+    private fun bind(producer : Producer) {
+        binding.textViewProducerCompanyName.text = producer.companyName
+        binding.textViewProducerName.text = producer.name
+    }
+
+
 }
