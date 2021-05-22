@@ -40,7 +40,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
         binding.textViewBuyPrice.text = action.purchasePrice.toString()
         binding.textViewDescription.text = action.description
         binding.textViewId.text = action.id
-        binding.textViewName.text = action.name
+        binding.textViewName.text = action.producer?.name
         binding.textViewUnity.text = action.quantity.toString()
         action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImage(it) }
         binding.textViewSalePrice.text = action.salePrice.toString()
