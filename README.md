@@ -7,7 +7,8 @@ Aplicativo Android - **BullChip**
 Aplicativo Web desenvolvido para administração. Disponível [nesse link.](https://github.com/ivanvoliveira/bullchip-admin)
 
 - Kotlin
-- Arquitetura: **MPV ( Model - View - Presenter )**
+- Arquitetura: **MVP ( Model - View - Presenter )**
 - Injeção de dependências: **Koin**
 - Android Jetpack Components
 - Firebase
+ 
