@@ -2,6 +2,7 @@ package com.rightside.hackaton.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -19,15 +20,43 @@ class HomeActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+        setSupportActionBar(binding.toolbar.tool)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when(destination.id) {
-                R.id.loginFragment -> binding.bottomNavigationView.invisibleUI()
-                R.id.feedFragment -> binding.bottomNavigationView.visibleUI()
-                R.id.actionDetailsFragment -> binding.bottomNavigationView.invisibleUI()
-                R.id.producerDetailsFragment -> binding.bottomNavigationView.invisibleUI()
-                R.id.producerFragment -> binding.bottomNavigationView.visibleUI()
-                R.id.profileFragment -> binding.bottomNavigationView.visibleUI()
+                R.id.loginFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                    binding.bottomNavigationView.invisibleUI() }
+
+                R.id.feedFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                    binding.bottomNavigationView.visibleUI() }
+                R.id.actionDetailsFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                    binding.bottomNavigationView.invisibleUI() }
+                R.id.producerDetailsFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                    binding.bottomNavigationView.invisibleUI() }
+                R.id.producerFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                    binding.bottomNavigationView.visibleUI()
+                }
+                R.id.profileFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                    binding.bottomNavigationView.visibleUI()
+                }
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
