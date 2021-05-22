@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="8dp"
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -25,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
         android:padding="4dp"
-        android:textColor="@color/green"
+        android:textColor="@color/greyDark"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/text_view_name"
@@ -40,12 +39,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
         android:padding="4dp"
-        android:textColor="@color/red"
+        android:textColor="@color/greyDark"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/text_view_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_view_name"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_view_name"
         tools:text="R$ 500,00" />
 
@@ -56,7 +55,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Quantidade restante:"
+        android:text="Total:"
         android:textSize="12sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +73,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_view_label"
         app:layout_constraintTop_toTopOf="@+id/text_view_label"
-        tools:text="quantidade" />
+        tools:text="1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Restante:"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_label"
+        app:layout_constraintStart_toEndOf="@+id/text_view_unity"
+        app:layout_constraintTop_toTopOf="@+id/text_view_label" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_unity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_label2"
+        app:layout_constraintStart_toEndOf="@+id/text_view_label2"
+        app:layout_constraintTop_toTopOf="@+id/text_view_label2"
+        tools:text="1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_name"
@@ -82,9 +106,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        tools:text="Nome"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_id" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_id"
+        tools:text="Nome" />
 
     <ImageView
         android:id="@+id/imageView"
