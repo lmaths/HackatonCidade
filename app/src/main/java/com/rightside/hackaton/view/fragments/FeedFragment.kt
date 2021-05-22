@@ -1,16 +1,13 @@
 package com.rightside.hackaton.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.airbnb.lottie.LottieAnimationView
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentFeedBinding
 import com.rightside.hackaton.extensions.invisibleUI
@@ -37,6 +34,12 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
         presenter.lifecycle = lifecycle
         presenter.view = this
         presenter.init()
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            )
+        )
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = actionAdapter

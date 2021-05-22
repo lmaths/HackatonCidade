@@ -6,16 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rightside.hackaton.databinding.AdapterActionBinding
 import com.rightside.hackaton.model.Action
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class ActionAdaper(val actionClickListener : (Action) -> Unit) : RecyclerView.Adapter<ActionAdaper.ActionViewHolder>() {
     lateinit var binding : AdapterActionBinding
     private var actions : List<Action> = ArrayList()
     inner class ActionViewHolder(binding : AdapterActionBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(action : Action) {
-            binding.textViewDescription.text = action.description
+//            binding.textViewDescription.text = action.description
             binding.textViewId.text = action.id
-            binding.textViewSalePrice.text = action.salePrice.toString()
-            binding.textViewBuyPrice.text = action.purchasePrice.toString()
+            binding.textViewSalePrice.text = "R$ " + action.salePrice.toString()
+            binding.textViewBuyPrice.text = "R$ " + action.purchasePrice.toString()
             binding.textViewUnity.text = action.quantity.toString()
             binding.textViewName.text = action.name.toString()
         }
