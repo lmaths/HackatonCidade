@@ -15,10 +15,12 @@ import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentActionDetailsBinding
 import com.rightside.hackaton.extensions.loadImage
 import com.rightside.hackaton.model.Action
+import com.rightside.hackaton.view.contracts.ActionDetailsContract
 
 
-class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
+class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), ActionDetailsContract.View {
    private lateinit var binding : FragmentActionDetailsBinding
+    override val presenter: ActionDetailsContract.Presenter by inject()
     private val args : ActionDetailsFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +36,10 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
         val action = args.action
         setFields(action)
         renderGraph()
+
+        binding.materialButton.setOnClickListener {
+
+        }
     }
 
     private fun setFields(action: Action) {
@@ -75,4 +81,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details) {
         }
 
     }
+
+
+
 }
