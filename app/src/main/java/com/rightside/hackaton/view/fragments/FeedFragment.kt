@@ -63,8 +63,8 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
         binding.animationView.invisibleUI()
     }
 
-    override fun showDetails() {
-        // todo criar tela de detalhes da ação.
+    override fun showDetails(action: Action) {
+       findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToActionDetailsFragment(action))
     }
 
     override fun moveToLogin() {
@@ -72,7 +72,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedContract.View {
     }
 
     private fun actionClickListener(action: Action) {
-        presenter.moveToDetails()
+        presenter.moveToDetails(action)
     }
 
 

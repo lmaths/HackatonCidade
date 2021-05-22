@@ -13,12 +13,12 @@ interface FeedContract {
         fun updateFeed(it: List<Action>)
         fun showEmptyFeed()
         fun hideLoading()
-        fun showDetails()
+        fun showDetails(action: Action)
         fun moveToLogin()
     }
     interface Presenter : BasePresenter<FeedContract.View> {
         fun getFeed()
-        fun moveToDetails()
+        fun moveToDetails(action: Action)
     }
 
     interface FirebaseService {

@@ -13,10 +13,25 @@
         <action
             android:id="@+id/action_feedFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_actionDetailsFragment"
+            app:destination="@id/actionDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/feedFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.rightside.hackaton.view.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/actionDetailsFragment"
+        android:name="com.rightside.hackaton.view.fragments.ActionDetailsFragment"
+        android:label="fragment_action_details"
+        tools:layout="@layout/fragment_action_details" >
+        <argument
+            android:name="action"
+            app:argType="com.rightside.hackaton.model.Action" />
+    </fragment>
 </navigation>

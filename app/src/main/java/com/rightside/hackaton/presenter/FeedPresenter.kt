@@ -46,9 +46,9 @@ class FeedPresenter(private val service : FeedContract.FirebaseService, private 
         getFeed()
     }
 
-    override fun moveToDetails() {
+    override fun moveToDetails(action: Action) {
         when(service.verifyIfUserIsAuthenticated()) {
-            true -> view?.showDetails()
+            true -> view?.showDetails(action)
             false -> view?.moveToLogin()
         }
        service.verifyIfUserIsAuthenticated()
