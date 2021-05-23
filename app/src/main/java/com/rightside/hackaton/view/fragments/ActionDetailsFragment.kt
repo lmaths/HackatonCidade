@@ -73,7 +73,6 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
     }
 
     private fun setFields(action: Action) {
-        binding.textViewBuyPrice.text = "R$ ${action.purchasePrice.toString()}"
         binding.textViewDescription.text = action.description
         binding.textViewId.text = action.id
         binding.textViewName.text = action.producer?.name
