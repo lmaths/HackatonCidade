@@ -9,11 +9,11 @@
         android:id="@+id/textView_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="@dimen/_4sdp"
+        android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
         android:textSize="@dimen/_13ssp"
-        android:fontFamily="@font/lato_bold"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,92 +37,89 @@
         tools:text="R$ 600,00" />
 
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_4sdp"
-        android:layout_marginTop="@dimen/_6ssp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/lato_bold"
         android:text="Total:"
         android:textColor="#A0A0A0"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_unity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_name" />
+        app:layout_constraintTop_toTopOf="@+id/text_view_unity" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_unity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
-        android:layout_marginStart="@dimen/_2sdp"
         android:textSize="@dimen/_12ssp"
-        app:layout_constraintStart_toEndOf="@+id/text_view_label"
-        app:layout_constraintTop_toTopOf="@+id/text_view_label"
+        app:layout_constraintEnd_toEndOf="@+id/text_view_unity2"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_name"
         tools:text="1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_4sdp"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/lato_bold"
         android:text="Idade atual"
         android:textColor="#A0A0A0"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_unity2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_label" />
+        app:layout_constraintTop_toTopOf="@+id/text_view_unity2" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/lato_bold"
         android:text="Arroba média de abate:"
         android:textColor="#A0A0A0"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_label2" />
+        app:layout_constraintTop_toTopOf="@+id/text_view_unity_middle_year" />
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_unity2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_2sdp"
-        android:textSize="@dimen/_12ssp"
+        android:layout_marginTop="1dp"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_label2"
-        app:layout_constraintStart_toEndOf="@+id/text_view_label2"
-        app:layout_constraintTop_toTopOf="@+id/text_view_label2"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="@+id/text_view_unity_middle_year"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_unity"
         tools:text="1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_unity_middle_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
-        android:layout_marginStart="@dimen/_2sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
         app:layout_constraintStart_toEndOf="@+id/appCompatTextView2"
-        app:layout_constraintTop_toTopOf="@+id/appCompatTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_unity2"
         tools:text="1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/_6sdp"
         android:fontFamily="@font/lato_regular"
         android:textColor="#A0A0A0"
