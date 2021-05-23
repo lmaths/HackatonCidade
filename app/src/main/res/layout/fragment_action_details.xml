@@ -119,7 +119,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView"
         app:layout_constraintEnd_toStartOf="@+id/textView_sale_price"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_id"
+        app:layout_constraintStart_toEndOf="@+id/textView_description"
         app:layout_constraintTop_toTopOf="@+id/textView_id"
         tools:text="R$ 00,00" />
 
