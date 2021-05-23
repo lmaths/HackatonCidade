@@ -85,25 +85,23 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
 
     private fun renderGraph() {
         val entries: MutableList<BarEntry> = ArrayList()
-        entries.add(BarEntry(0f, 4f))
-        entries.add(BarEntry(1f, 8f))
-        entries.add(BarEntry(2f, 10f))
-        entries.add(BarEntry(5f, 13f))
-        entries.add(BarEntry(6f, 14f))
-        entries.add(BarEntry(6f, 16f))
-        val set = BarDataSet(entries, "BarDataSet")
+        entries.add(BarEntry(0f, 30f))
+        entries.add(BarEntry(1f, 50f))
+        entries.add(BarEntry(2f, 100f))
+        entries.add(BarEntry(3f, 150f))
+        entries.add(BarEntry(4f, 200f))
+        val set = BarDataSet(entries, "Peso")
         val xAxisLabel: ArrayList<String> = ArrayList()
-        xAxisLabel.add("2009-2011")
-        xAxisLabel.add("2011-2013")
-        xAxisLabel.add("2013-2015")
-        xAxisLabel.add("2015-2017")
-        xAxisLabel.add("2017-2019")
-        xAxisLabel.add("2019-2021")
-        xAxisLabel.add("2019-2021")
+        xAxisLabel.add("1")
+        xAxisLabel.add("2")
+        xAxisLabel.add("3")
+        xAxisLabel.add("4")
+        xAxisLabel.add("5")
         val xAxis = binding.graph.xAxis
         val data = BarData(set)
         data.barWidth = 0.9f
         binding.graph.data = data
+        binding.graph.description.text = ""
         binding.graph.setFitBars(true)
         xAxis.valueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
