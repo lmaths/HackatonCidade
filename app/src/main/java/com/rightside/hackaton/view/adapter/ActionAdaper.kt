@@ -22,6 +22,7 @@ class ActionAdaper(val actionClickListener : (Action) -> Unit) : RecyclerView.Ad
             binding.textViewName.text = action.name
             binding.textViewUnity2.text = action.actualYear
             binding.textViewUnityMiddleYear.text = action.middleYear
+            binding.textViewUnityArroba.text = action.arroba
         }
     }
 

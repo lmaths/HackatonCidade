@@ -15,7 +15,7 @@ class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : Recycler
         fun bind(producer: Producer) {
             binding.textViewProducerName.text = producer.name
             binding.textViewProducerAddress.text = producer.address
-            binding.textViewProducerQuantity.text = "100 Ativos"
+            binding.textViewProducerQuantity.text = (0..200).random().toString()
             binding.imageViewProducerPicture.loadImageCircle(producer.profilePicture)
         }
     }
