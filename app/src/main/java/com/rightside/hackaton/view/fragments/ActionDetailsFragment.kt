@@ -78,6 +78,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
         binding.textViewId.text = action.id
         binding.textViewName.text = action.producer?.name
         binding.textViewUnity.text = action.quantity.toString()
+        binding.textViewUnity2.text = (0..500).random().toString()
         action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImageCircle(it) }
         binding.textViewSalePrice.text = action.salePrice.toString()
     }
