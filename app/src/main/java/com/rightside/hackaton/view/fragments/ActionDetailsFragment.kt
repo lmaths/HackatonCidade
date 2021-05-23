@@ -1,10 +1,12 @@
 package com.rightside.hackaton.view.fragments
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -47,8 +49,20 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
         renderGraph()
 
         binding.materialButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Compra realizada com sucesso.", Toast.LENGTH_LONG).show()
-            presenter.buyAction(action)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setMessage("Tem certeza que deseja comprar a ação?")
+                .setPositiveButton("Comprar",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                        presenter.buyAction(action)
+                        presenter.init()
+                        Toast.makeText(requireContext(), "Compra realizada com sucesso.", Toast.LENGTH_SHORT).show()
+                    })
+                .setNegativeButton("Cancelar",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                    })
+            builder.create().show()
         }
         binding.btnSeeActionOwnerProfile.setOnClickListener {
             action.producer?.let {

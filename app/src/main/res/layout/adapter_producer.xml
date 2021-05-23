@@ -9,7 +9,7 @@
         android:id="@+id/textView_producer_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/_4sdp"
         android:fontFamily="@font/lato_bold"
         android:layout_marginEnd="@dimen/_19sdp"
         android:text="MATHEUS LIMA DA SILVA"
