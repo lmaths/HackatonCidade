@@ -78,7 +78,7 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
         binding.textViewName.text = action.producer?.name
         binding.textViewUnity.text = action.quantity.toString()
         action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImageCircle(it) }
-        binding.textViewSalePrice.text = "R$ ${action.salePrice.toString()}"
+        binding.textViewBuyPrice.text = "R$ ${action.salePrice.toString()}"
         binding.textViewActualYear.text = action.actualYear
         binding.textViewMiddleYearSlaughter.text = action.middleYear
     }
