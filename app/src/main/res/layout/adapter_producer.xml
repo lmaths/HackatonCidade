@@ -10,13 +10,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4sdp"
-        android:fontFamily="@font/lato_bold"
         android:layout_marginEnd="@dimen/_19sdp"
-        android:text="MATHEUS LIMA DA SILVA"
+        android:fontFamily="@font/lato_bold"
         android:maxLines="2"
+        android:text="MATHEUS LIMA DA SILVA"
         android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
+        android:textSize="@dimen/_13ssp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/image_view_producer_picture"
         app:layout_constraintTop_toTopOf="@+id/image_view_producer_picture" />
 
@@ -24,9 +25,9 @@
         android:id="@+id/textView_producer_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_1sdp"
         android:text="Endereço"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_11ssp"
         android:fontFamily="@font/lato_regular"
         android:textColor="#A0A0A0"
         app:layout_constraintStart_toStartOf="@+id/textView_producer_name"
@@ -36,42 +37,26 @@
         android:id="@+id/textView_producer_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_1sdp"
         android:fontFamily="@font/lato_bold"
         android:text="100 ativos"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:textColor="@color/black"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/image_view_producer_picture"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView_producer_address"
-        app:layout_constraintTop_toBottomOf="@+id/textView_producer_address"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_producer_address" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_view_producer_picture"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:src="@drawable/ic_producers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53999996" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_see_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:background="@drawable/button_border"
-        android:fontFamily="@font/lato_bold"
-        android:text="Ver detalhes"
-        android:textColor="@color/primaryColor"
-        android:textSize="@dimen/_10ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_producer_quantity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_producer_quantity"
-        app:layout_constraintTop_toTopOf="@+id/textView_producer_address" />
 </androidx.constraintlayout.widget.ConstraintLayout>
