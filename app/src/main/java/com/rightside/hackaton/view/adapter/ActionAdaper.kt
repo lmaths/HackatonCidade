@@ -21,7 +21,8 @@ class ActionAdaper(val actionClickListener : (Action) -> Unit) : RecyclerView.Ad
             binding.textViewBuyPrice.text = "R$ " + action.purchasePrice.toString()
             binding.textViewUnity.text = action.quantity.toString()
             binding.textViewName.text = action.name
-            binding.textViewUnity2.text = (0..500).random().toString()
+            binding.textViewUnity2.text = action.actualYear
+            binding.textViewUnityMiddleYear.text = action.middleYear
         }
     }
 
