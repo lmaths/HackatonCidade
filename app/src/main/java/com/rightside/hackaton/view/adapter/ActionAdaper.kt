@@ -8,6 +8,7 @@ import com.rightside.hackaton.databinding.AdapterActionBinding
 import com.rightside.hackaton.model.Action
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import kotlin.random.Random
 
 class ActionAdaper(val actionClickListener : (Action) -> Unit) : RecyclerView.Adapter<ActionAdaper.ActionViewHolder>() {
     lateinit var binding : AdapterActionBinding
@@ -20,6 +21,7 @@ class ActionAdaper(val actionClickListener : (Action) -> Unit) : RecyclerView.Ad
             binding.textViewBuyPrice.text = "R$ " + action.purchasePrice.toString()
             binding.textViewUnity.text = action.quantity.toString()
             binding.textViewName.text = action.name
+            binding.textViewUnity2.text = (0..500).random().toString()
         }
     }
 

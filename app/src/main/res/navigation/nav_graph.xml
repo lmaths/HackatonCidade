@@ -33,6 +33,10 @@
         <argument
             android:name="action"
             app:argType="com.rightside.hackaton.model.Action" />
+        <action
+            android:id="@+id/action_actionDetailsFragment_to_producerDetailsFragment"
+            app:destination="@id/producerDetailsFragment"
+            app:popUpTo="@id/feedFragment" />
     </fragment>
     <fragment
         android:id="@+id/producerFragment"
@@ -56,7 +60,8 @@
             app:argType="com.rightside.hackaton.model.Producer" />
         <action
             android:id="@+id/action_producerDetailsFragment_to_actionDetailsFragment"
-            app:destination="@id/actionDetailsFragment" />
+            app:destination="@id/actionDetailsFragment"
+            app:popUpTo="@id/producerFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

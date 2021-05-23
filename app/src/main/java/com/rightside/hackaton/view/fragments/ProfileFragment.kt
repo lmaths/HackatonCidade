@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rightside.hackaton.R
 import com.rightside.hackaton.databinding.FragmentProfileBinding
@@ -20,13 +22,6 @@ import org.koin.android.ext.android.inject
 class ProfileFragment : Fragment(), ProfileContract.View {
 
     lateinit var binding : FragmentProfileBinding
-
-    override fun moveUserToLogin() {
-
-    }
-
-
-
     override val presenter: ProfilePresenter by inject()
     private val actionsAdapter by lazy { ActionAdaper(::onActionClickListener) }
 
@@ -48,6 +43,10 @@ class ProfileFragment : Fragment(), ProfileContract.View {
         binding.recyclerViewActionsHistory.apply {
             adapter = actionsAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            ))
         }
     }
 
@@ -58,7 +57,11 @@ class ProfileFragment : Fragment(), ProfileContract.View {
     }
 
     private fun onActionClickListener(action: Action) {
-        //vender
+
+    }
+
+    override fun moveUserToLogin() {
+        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
     }
 
 

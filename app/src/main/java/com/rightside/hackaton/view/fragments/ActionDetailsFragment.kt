@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -45,7 +47,14 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
         renderGraph()
 
         binding.materialButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Compra realizada com sucesso.", Toast.LENGTH_LONG).show()
             presenter.buyAction(action)
+        }
+        binding.btnSeeActionOwnerProfile.setOnClickListener {
+            action.producer?.let {
+                findNavController().navigate(ActionDetailsFragmentDirections.actionActionDetailsFragmentToProducerDetailsFragment(it))
+            }
+
         }
     }
 

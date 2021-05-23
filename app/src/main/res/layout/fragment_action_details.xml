@@ -10,8 +10,12 @@
         android:id="@+id/textView_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_4sdp"
         android:layout_marginEnd="32dp"
+        android:textColor="@color/greyDark"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/lato_regular"
         app:layout_constraintEnd_toStartOf="@+id/text_view_buy_price"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_id"
@@ -21,27 +25,82 @@
         android:id="@+id/textView_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         tools:text="Código" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_see_action_owner_profile">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_22sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_bold"
+            android:text="Ação"
+            android:textColor="#A0A0A0"
+            android:textSize="@dimen/_12ssp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:fontFamily="@font/lato_bold"
+            android:text="Compra"
+            android:textColor="#A0A0A0"
+            android:textSize="@dimen/_12ssp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:fontFamily="@font/lato_bold"
+            android:text="Venda"
+            android:textColor="#A0A0A0"
+            android:textSize="@dimen/_12ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#A0A0A0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView_sale_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corner"
-        android:padding="4dp"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/text_view_buy_price"
-        app:layout_constraintStart_toStartOf="@+id/text_view_buy_price"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_buy_price"
+        android:fontFamily="@font/lato_bold"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:padding="@dimen/_8sdp"
+        android:textColor="#A0A0A0"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_buy_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_view_buy_price"
         tools:text="R$ 00,00" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -49,12 +108,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
-        android:padding="4dp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:fontFamily="@font/lato_bold"
+        android:padding="@dimen/_8sdp"
+        android:textColor="#A0A0A0"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_description"
-        app:layout_constraintEnd_toStartOf="@+id/image_view_action_owner_picture"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintEnd_toStartOf="@+id/textView_sale_price"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView_id"
         app:layout_constraintTop_toTopOf="@+id/textView_id"
         tools:text="R$ 00,00" />
@@ -63,11 +124,12 @@
         android:id="@+id/text_view_unity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:textSize="12sp"
-        android:textStyle="italic"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintBottom_toBottomOf="@+id/text_view_label"
-        app:layout_constraintStart_toEndOf="@+id/text_view_label"
+        app:layout_constraintEnd_toEndOf="@+id/text_view_unity2"
+        app:layout_constraintStart_toStartOf="@+id/text_view_unity2"
         app:layout_constraintTop_toTopOf="@+id/text_view_label"
         tools:text="1" />
 
@@ -75,11 +137,12 @@
         android:id="@+id/text_view_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fontFamily="@font/lato_bold"
         android:text="Total:"
-        android:textSize="12sp"
-        android:textStyle="italic"
+        android:textColor="#A0A0A0"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_description" />
 
@@ -87,8 +150,10 @@
         android:id="@+id/text_view_unity2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textStyle="italic"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_2sdp"
         app:layout_constraintBottom_toBottomOf="@+id/text_view_label2"
         app:layout_constraintStart_toEndOf="@+id/text_view_label2"
         app:layout_constraintTop_toTopOf="@+id/text_view_label2"
@@ -98,13 +163,15 @@
         android:id="@+id/text_view_label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:text="Restante:"
-        android:textSize="12sp"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="#A0A0A0"
+        android:layout_marginTop="@dimen/_2sdp"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/text_view_unity"
-        app:layout_constraintTop_toBottomOf="@+id/textView_description" />
+        android:layout_marginStart="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_label" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_name"
@@ -112,21 +179,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/lato_bold"
+        android:textSize="@dimen/_16ssp"
         app:layout_constraintEnd_toEndOf="@+id/image_view_action_owner_picture"
         app:layout_constraintStart_toStartOf="@+id/image_view_action_owner_picture"
         app:layout_constraintTop_toBottomOf="@+id/image_view_action_owner_picture"
-        tools:text="name" />
+        tools:text="Matheus Lima da Silva" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_view_action_owner_picture"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:src="@drawable/bullbit"
-        app:layout_constraintEnd_toEndOf="@+id/btn_see_action_owner_profile"
-        app:layout_constraintStart_toStartOf="@+id/btn_see_action_owner_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
@@ -134,33 +201,39 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/_4sdp"
         android:drawableEnd="@drawable/ic_arrow_right"
         android:drawableTint="@color/primaryColorDark"
         android:text="Ver perfil"
         android:textColor="@color/primaryColorDark"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/image_view_action_owner_picture"
+        app:layout_constraintStart_toStartOf="@+id/image_view_action_owner_picture"
         app:layout_constraintTop_toBottomOf="@+id/text_view_name" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="COMPRAR"
-        app:layout_constraintBottom_toTopOf="@+id/graph"
-        app:layout_constraintEnd_toEndOf="@+id/text_view_buy_price"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:background="@drawable/button_border"
+        android:fontFamily="@font/lato_bold"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:text="Comprar"
+        android:textColor="@color/primaryColor"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView_description"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_label" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_label2" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/graph"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layoutMode="clipBounds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_see_action_owner_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/materialButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rightside.hackaton.databinding.AdapterProducerBinding
 import com.rightside.hackaton.extensions.loadImage
-import com.rightside.hackaton.extensions.loadImageCircle
 import com.rightside.hackaton.model.Producer
 
 class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : RecyclerView.Adapter<ProducerAdapter.ProducerViewHolder>() {
@@ -16,7 +15,7 @@ class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : Recycler
             binding.textViewProducerName.text = producer.name
             binding.textViewProducerAddress.text = producer.address
             binding.textViewProducerQuantity.text = "100 Ativos"
-            binding.imageViewProducerPicture.loadImageCircle(producer.profilePicture)
+            binding.imageViewProducerPicture.loadImage(producer.profilePicture)
         }
     }
 
@@ -28,7 +27,7 @@ class ProducerAdapter(val producerClickListener : (Producer) -> Unit) : Recycler
     override fun onBindViewHolder(holder: ProducerViewHolder, position: Int) {
         val producer = producers[position]
         holder.bind(producer)
-        holder.itemView.setOnClickListener { producerClickListener(producer) }
+        binding.buttonSeeDetails.setOnClickListener { producerClickListener(producer) }
     }
 
     override fun getItemCount(): Int = producers.size

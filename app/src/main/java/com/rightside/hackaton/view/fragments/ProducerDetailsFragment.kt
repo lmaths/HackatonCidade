@@ -1,5 +1,6 @@
 package com.rightside.hackaton.view.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,13 +10,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.rightside.hackaton.R
-import com.rightside.hackaton.databinding.FragmentProducerBinding
 import com.rightside.hackaton.databinding.FragmentProducerDetailsBinding
 import com.rightside.hackaton.model.Action
 import com.rightside.hackaton.model.Producer
 import com.rightside.hackaton.presenter.ProducerDetailsPresenter
+import com.rightside.hackaton.util.DotsIndicatorDecoration
 import com.rightside.hackaton.view.adapter.ActionDetailsAdapter
 import com.rightside.hackaton.view.contracts.ProducerDetailsContract
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
@@ -48,6 +48,7 @@ class ProducerDetailsFragment : Fragment(R.layout.fragment_producer_details) , P
         binding.recyclerViewProducerActives.apply {
             adapter = actionAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            addItemDecoration(DotsIndicatorDecoration(10, 20, 150, Color.GRAY, Color.BLACK))
         }
         presenter.getAllActivesByIdProducer(producerId = producer.id)
         bind(producer)
