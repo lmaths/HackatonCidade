@@ -12,12 +12,13 @@ interface ProfileContract {
         fun updateData(userdata: User, actions: List<Action>)
     }
     interface Presenter : BasePresenter<View> {
-
+        fun sellAction(action: Action)
     }
 
     interface FirebaseService {
         fun verifyIfUserIsAuthenticated() : String?
         fun getUserData(userId: String) : Observable<User>
         fun getActionsPurchasedByUserId(userid : String) : Observable<List<Action>>
+        fun sellAction(action: Action)
     }
 }

@@ -1,10 +1,13 @@
 package com.rightside.hackaton.view.fragments
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,7 +60,21 @@ class ProfileFragment : Fragment(), ProfileContract.View {
     }
 
     private fun onActionClickListener(action: Action) {
-
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage("Deseja vender a ação?")
+            .setPositiveButton("Vender",
+                DialogInterface.OnClickListener { dialog, id ->
+                    dialog.dismiss()
+                    presenter.sellAction(action)
+                    presenter.init()
+                    Toast.makeText(requireContext(), "Ação vendida com sucesso.", Toast.LENGTH_SHORT).show()
+                })
+            .setNegativeButton("Cancelar",
+                DialogInterface.OnClickListener { dialog, id ->
+                    dialog.dismiss()
+                })
+        // Create the AlertDialog object and return it
+        builder.create().show()
     }
 
     override fun moveUserToLogin() {

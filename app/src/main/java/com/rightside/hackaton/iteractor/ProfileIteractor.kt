@@ -29,4 +29,8 @@ class ProfileIteractor(private val dbInstance : FirebaseFirestore, private val a
         }
     }
 
+    override fun sellAction(action: Action) {
+        dbInstance.collection(appSharedPreferences.userId.toString()).document(action.id).delete()
+    }
+
 }

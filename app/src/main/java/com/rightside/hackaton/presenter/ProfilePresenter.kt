@@ -15,6 +15,10 @@ class ProfilePresenter(val service : ProfileContract.FirebaseService, val baseSc
     lateinit var lifecycle : Lifecycle
     private val disposable = CompositeDisposable()
 
+    override fun sellAction(action: Action) {
+        service.sellAction(action)
+    }
+
     override fun init() {
         lifecycle.addObserver(this)
         getUserData()
