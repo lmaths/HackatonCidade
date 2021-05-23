@@ -35,7 +35,6 @@ class ActionDetailsAdapter(val actionClickListener : (Action) -> Unit ) : Recycl
          fun bind(action : Action) {
             binding.textViewName.text = action.producer?.name
             binding.textViewUnity.text = action.quantity.toString()
-            binding.textViewBuyPrice.text = "R$ ${action.purchasePrice.toString()}"
             binding.textViewSalePrice.text = "R$ ${action.salePrice.toString()}"
             binding.textViewId.text = action.id
              binding.textViewUnity2.text = (0..500).random().toString()

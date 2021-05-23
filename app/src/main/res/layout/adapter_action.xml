@@ -29,25 +29,14 @@
         android:padding="@dimen/_8sdp"
         android:textColor="#A0A0A0"
         android:textSize="@dimen/_12ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_buy_price"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_view_buy_price"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/text_view_unity"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="R$ 600,00" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_view_buy_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@drawable/rounded_corner"
-        android:fontFamily="@font/lato_bold"
-        android:padding="@dimen/_8sdp"
-        android:textColor="#A0A0A0"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_label2"
-        app:layout_constraintEnd_toStartOf="@+id/textView_sale_price"
-        app:layout_constraintTop_toTopOf="@+id/textView_id"
-        tools:text="R$ 500,00" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_label"
