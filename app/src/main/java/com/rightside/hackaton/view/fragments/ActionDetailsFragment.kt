@@ -73,14 +73,14 @@ class ActionDetailsFragment : Fragment(R.layout.fragment_action_details), Action
     }
 
     private fun setFields(action: Action) {
-        binding.textViewBuyPrice.text = action.purchasePrice.toString()
+        binding.textViewBuyPrice.text = "R$ ${action.purchasePrice.toString()}"
         binding.textViewDescription.text = action.description
         binding.textViewId.text = action.id
         binding.textViewName.text = action.producer?.name
         binding.textViewUnity.text = action.quantity.toString()
         binding.textViewUnity2.text = (0..500).random().toString()
         action.producer?.profilePicture?.let { binding.imageViewActionOwnerPicture.loadImageCircle(it) }
-        binding.textViewSalePrice.text = action.salePrice.toString()
+        binding.textViewSalePrice.text = "R$ ${action.salePrice.toString()}"
     }
 
     private fun renderGraph() {
